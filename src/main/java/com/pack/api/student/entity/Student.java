@@ -15,7 +15,8 @@ public class Student {
     private String mobile;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    // @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
@@ -86,7 +87,6 @@ public class Student {
     //                '}';
     //    }
 
-
     @Override
     public String toString() {
         return "Student {" +
@@ -96,4 +96,5 @@ public class Student {
                 ", mobile='" + mobile + '\'' +
                 '}';
     }
+
 }

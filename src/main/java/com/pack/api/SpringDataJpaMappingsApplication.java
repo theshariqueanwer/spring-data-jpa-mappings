@@ -19,9 +19,15 @@ public class SpringDataJpaMappingsApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		appService.saveData();
 
-		appService.fetchData();
+		// appService.saveData();
+
+		// appService.fetchData();
+
+		// appService.getStudentFromAddress();
+
+		appService.getStudentFromAddress1();
+
 	}
 
 

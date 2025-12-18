@@ -1,5 +1,6 @@
 package com.pack.api.address.entity;
 
+import com.pack.api.student.entity.Student;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,11 @@ public class Address {
     private String city;
     private String state;
     private String pinCode;
+
+
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
+    // @JoinColumn(name = "student_id") // because foreign key is in student table
+    private Student student;
 
     public Address() {
     }
@@ -64,6 +70,14 @@ public class Address {
         this.pinCode = pinCode;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 
     @Override
     public String toString() {
@@ -75,6 +89,5 @@ public class Address {
                 ", pinCode='" + pinCode + '\'' +
                 '}';
     }
-
 
 }
